@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+    font-size: 14px;
+}
+
+img {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.main-header {
+    height: 10rem;
+    min-width: 1200px;
+    background-color: darkslateblue;
+}
+
+.main-logo .logo-text {
+    margin-top: 3rem;
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-align: left;
+}
+
+.main-logo .logo-text::first-letter {
+    color: red;
+}
