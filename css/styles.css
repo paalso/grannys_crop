@@ -15,10 +15,18 @@ img {
 
 /* -------------------------------------------------------------------------- */
 
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
 .main-header {
     height: 10rem;
     min-width: 1200px;
+    margin-bottom: 50px;
     background-color: darkslateblue;
+    border: 1px dotted darkslateblue;
+    ;
 }
 
 .main-logo .logo-text {
@@ -33,3 +41,51 @@ img {
 .main-logo .logo-text::first-letter {
     color: red;
 }
+
+.product-item {
+    /* position: relative; */
+    width: 23.875%;
+    float: left;
+    margin-right: 1.5%;
+    padding: 1%;
+    background-color: #fff;
+}
+
+.product-item:last-child {
+    margin-right: 0;
+}
+
+.product-img {
+    width: 100%;
+    /*    border: 1px red dotted; */
+    /* transform-origin: 0 0; */
+}
+
+.product-description {
+    display: none;
+    margin-top: 5%;
+}
+
+.product-item p {
+    margin-bottom: 5%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.product-item:hover {
+    z-index: 100;
+    padding: 1.5%;
+    transform-origin: 0 0;
+    transform: scale(1.4);
+    box-shadow: 2px 0 5px 1px rgb(129, 125, 125);
+    ;
+}
+
+.product-item:hover .product-description {
+    display: block;
+}
+
+/* Попробовать inline-block и выравнивание по центру повертикали */
