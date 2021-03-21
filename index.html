@@ -17,18 +17,18 @@
         </div>
     </header>
 
-    <div id="open-modal" class="modal-window">
-        <a href="#close" title="Закрыть" class="close-modal-window">✕</a>
-    </div>
-
     <section class="products">
         <div class="container">
             <div class="gallery">
-                <a class="product-item" href="#open-modal">
-                    <img class="product-img" src="img/zucchini.jpg" alt="Кабаки">
+
+                <input type="radio" name="increase-img" id="picture1">
+                <article class="product-item" href="#open-modal">
+                    <label for="picture1">
+                        <img class="product-img" src="img/zucchini.jpg" alt="Кабаки">
+                    </label>
                     <div class="product-description">
                         <p>
-                            Кабачок - полезное культурное растение пролисхождением из Центральной Америки. Кабачок (и
+                            Кабачок - полезное культурное растение происхождением из Центральной Америки. Кабачок (и
                             его разновидность
                             цукини) жарят, парят, маринуют и консервируют на зиму. В народе оценили мочегонные свойства
                             этого продукта, способность восстанавливать солевой обмен, выводить токсины и «плохой»
@@ -43,10 +43,13 @@
                             концентрации выделяется калий. По материалам https://edaplus.info/produce/marrow.html
                         </p>
                     </div>
+                </article>
 
-                </a>
-                <a class="product-item" href="#open-modal">
-                    <img class="product-img" src="img/carrot.jpg" alt="Морковь">
+                <input type="radio" name="increase-img" id="picture2">
+                <article class="product-item" href="#open-modal">
+                    <label for="picture2">
+                        <img class="product-img" src="img/carrot.jpg" alt="Морковь">
+                    </label>
                     <div class="product-description">
                         <p>
                             Морко́вь (лат. Daúcus) — род растений семейства Зонтичные.
@@ -70,9 +73,13 @@
 
                         </p>
                     </div>
-                </a>
+                </article>
+
+                <input type="radio" name="increase-img" id="picture3">
                 <article class="product-item">
-                    <img class="product-img" src="img/eggplant.jpg" alt="Баклажаны">
+                    <label for="picture3">
+                        <img class="product-img" src="img/eggplant.jpg" alt="Баклажаны">
+                    </label>
                     <div class="product-description">
                         <p>
                             В 100 граммах баклажана всего 25 ккал, а потому диетологи в один голос заявляют о его пользе
@@ -92,8 +99,12 @@
                             систему человека.
                         </p>
                 </article>
+
+                <input type="radio" name="increase-img" id="picture4">
                 <article class="product-item">
-                    <img class="product-img" src="img/pumpkin.jpg" alt="Тыква">
+                    <label for="picture4">
+                        <img class="product-img" src="img/pumpkin.jpg" alt="Тыква">
+                    </label>
                     <div class="product-description">
                         <p>
                             Тыква содержит в себе огромное количество веществ, необходимых для нормальной работы нашего
@@ -108,10 +119,14 @@
                             также диабетикам, поскольку нее высокий гликемический индекс. </p>
 
                 </article>
+
             </div>
         </div>
     </section>
 
+    <input id="close-modal" name="increase-img" type="radio" checked>
+    <div class="modal-window"></div>
+    <label for="close-modal" class="modal-close">&#x2716;</label>
 
 </body>
 
