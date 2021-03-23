@@ -52,12 +52,20 @@ input[type="radio"] {
     color: red;
 }
 
+.gallery {
+    /* width: 100%; */
+    /* overflow: hidden; */
+    border: 1px red dotted;
+}
+
 .product-item {
-    width: 23.875%;
+    /* width: 285px; */
+    width: 23.5%;
     float: left;
     margin-right: 1.5%;
     padding: 1%;
     background-color: #fff;
+    border: 1px red dotted;
 }
 
 .product-item:last-child {
