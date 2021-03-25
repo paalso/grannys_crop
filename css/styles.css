@@ -115,7 +115,18 @@ input:checked~.product-description {
     display: none;
 }
 
+<<<<<<< HEAD
 /* --- Модальное окно ------------------------------------------------------------ */
+=======
+/* ---------------------------------------------------------------- */
+>>>>>>> bcc99fb6fc31028fc1435d80f297e5243eda5051
+
+/* Нужно ли ??? */
+/*
+input[name='increase-img']:checked~.modal-window {
+    display: block;
+}
+*/
 
 .modal-window {
     /* Модальное окно */
@@ -127,15 +138,27 @@ input:checked~.product-description {
     left: 0;
     z-index: 10;
     background: rgba(0, 0, 0, 0.7);
+<<<<<<< HEAD
 }
 
 input#close-modal:checked~.modal-window, input#close-modal:checked~.modal-close {
     /* Делает нективными и невидимыми модальное окно и div для его закрытия по умолчанию */
+=======
+    /* transition: opacity 200ms ease-in; */
+    /* -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in; */
+}
+
+input#close-modal:checked~.modal-window, input#close-modal:checked~.modal-close {
+>>>>>>> bcc99fb6fc31028fc1435d80f297e5243eda5051
     display: none;
 }
 
 .modal-close {
+<<<<<<< HEAD
     /* Это div для закрытия модального окна */
+=======
+>>>>>>> bcc99fb6fc31028fc1435d80f297e5243eda5051
     display: block;
     position: fixed;
     top: 20px;
@@ -149,6 +172,9 @@ input#close-modal:checked~.modal-window, input#close-modal:checked~.modal-close 
 }
 
 .modal-close:hover {
+<<<<<<< HEAD
     /* При нависании над div'om с крестиком, он чуть увеличивается */
+=======
+>>>>>>> bcc99fb6fc31028fc1435d80f297e5243eda5051
     transform: scale(1.5);
 }
