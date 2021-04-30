@@ -1,10 +1,25 @@
+:root {
+    --header-height: 15vh;
+    /* В дальнейшем размеры элементов .slider и смещений рассчитывааются от
+    этой переменной -> можно изменять размеры самого слайдера в целом, не
+    ломая динамику */
+    --content-width: 80vw;
+    --header-color: darkslateblue;
+    --text-color: #333;
+}
+
+/* --- General -------------------------------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #333;
-    font-size: 14px;
+    color: var(--text-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+    font-size: 14px;
 }
 
 img {
@@ -19,22 +34,22 @@ input[type="radio"] {
 
 .container {
     margin: 0 auto;
-    width: 80vw;
+    width: var(--content-width);
 }
 
 .main-header {
-    height: 15vh;
-    margin-bottom: 7vh;
-    background-color: darkslateblue;
-    border: 1px dotted darkslateblue;
+    height: var(--header-height);
+    margin-bottom: calc(var(--header-height) * 0.45);
+    background-color: var(--header-color);
+    border: 1px dotted var(--header-color);
 }
 
 .main-logo .logo-text {
-    font-size: 5vh;
-    line-height: 15vh;
+    font-size: calc(var(--header-height) * 0.33);
+    line-height: var(--header-height);
     color: #fff;
     text-align: left;
-    letter-spacing: 0.3vw;
+    letter-spacing: calc(var(--header-height) * 0.02);
 }
 
 .main-logo .logo-text::first-letter {
@@ -45,13 +60,13 @@ input[type="radio"] {
 
 .products {
     position: relative;
-    width: 80vw;
-    margin-top: 7vw;
-    margin-top: 0;
-    margin-left: 10vw;
+    width: var(--content-width);
+    margin-left: calc((100vw - var(--content-width)) * 0.5);
+    border: dotted 1px black;
 }
 
 .slider-wrapper {
+    /* Ограничивает видимый фрагмент слайдера */
     overflow: hidden;
 }
 
@@ -59,22 +74,24 @@ input[type="radio"] {
     position: relative;
     /* Редуцирует пробелы между элементами inline-block*/
     font-size: 0;
+    /* Располагает product-items в одну строку */
     white-space: nowrap;
     transition: all .8s ease-in-out .2s;
 }
 
 .product-item {
     position: relative;
-    width: 20vw;
-    padding: 0.7vw;
+    width: calc(var(--content-width) * 0.25);
+    padding: 1%;
     display: inline-block;
     vertical-align: middle;
     background-color: #fff;
-    /* cursor: pointer; */
+    border: dotted 1px red;
 }
 
 .product-img {
     width: 100%;
+    cursor: pointer;
 }
 
 .product-description {
@@ -84,9 +101,9 @@ input[type="radio"] {
 .product-item .product-description p {
     margin-top: 5%;
     margin-bottom: 5%;
-    overflow: hidden;
     white-space: normal;
-    /* text-overflow: ellipsis; */
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 0.8rem;
     font-weight: bold;
 }
@@ -96,25 +113,29 @@ input[type="radio"] {
 }
 
 .product-item:hover {
+    /* тут нужно учитывать, что при использовании позиционирования absolute /
+    fixed этот элемент выпадет из потока, и на него наедет следующий - ... */
     position: fixed;
     top: 25%;
-    width: 24vw;
+    width: 25vw;
+    /* 1.45 принципиально: calc(var(--header-height) * 1.45) - подгоняем,
+    чтобы верхняя граница увеличенного и fixed-позиционированного .product-item,
+    совпала с верхней границе .products) */
+    top: calc(var(--header-height) * 1.45);
+    /* 1.45 - НЕ принципиально - просто увеличиваем .product-item */
+    width: calc(var(--content-width) * 0.25 * 1.45);
     box-shadow: 2px 0 5px 1px rgb(129, 125, 125);
     z-index: 10;
 }
 
-.product-item:hover .product-description {
-    display: block;
+.product-item:hover+input+.product-item {
+    /* ... и поэтому мы добавим следующему .product-item margin-left размера
+    исходного блока чтобы оттолкнуть его обратно */
+    margin-left: calc(var(--content-width) * 0.25);
 }
 
-input[name="increase-img"]:checked+.product-item img {
-    position: fixed;
-    width: 60%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-    pointer-events: none;
+.product-item:hover .product-description {
+    display: block;
 }
 
 input[name="increase-img"]:checked~.product-description {
@@ -129,11 +150,6 @@ input[name="increase-img"]:checked~.product-description {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    z-index: 1;
-}
-
-.slider:hover~.slider-switchers {
-    z-index: -10;
 }
 
 .slider-switchers label {
@@ -170,18 +186,28 @@ input[name="increase-img"]:checked~.product-description {
 }
 
 #move1:checked~.slider-wrapper .slider {
-    left: -60vw;
+    left: calc(var(--content-width) * 0.25 * (-3));
 }
 
 #move2:checked~.slider-wrapper .slider {
-    left: -120vw;
+    left: calc(var(--content-width) * 0.25 * (-6));
 }
 
 #move3:checked~.slider-wrapper .slider {
-    left: -180vw;
+    left: calc(var(--content-width) * 0.25 * (-9));
 }
 
 /* --- Modal window ------------------------------------------------------------ */
+
+input[name="increase-img"]:checked+.product-item img {
+    position: fixed;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+}
 
 /* Нужно ли ??? */
 
