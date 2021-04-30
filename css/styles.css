@@ -3,73 +3,74 @@
     padding: 0;
     box-sizing: border-box;
     color: #333;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-html {
     font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 img {
     display: block;
 }
 
-a {
-    display: block;
-    text-decoration: none;
-}
-
 input[type="radio"] {
     display: none;
 }
 
-/* -------------------------------------------------------------------------- */
+/* --- Нeader -------------------------------------------------------------- */
 
 .container {
     margin: 0 auto;
-    width: 1200px;
+    width: 80vw;
 }
 
 .main-header {
-    height: 10rem;
-    min-width: 1200px;
-    margin-bottom: 50px;
+    height: 15vh;
+    margin-bottom: 7vh;
     background-color: darkslateblue;
     border: 1px dotted darkslateblue;
-    ;
 }
 
 .main-logo .logo-text {
-    margin-top: 3rem;
-    font-size: 3rem;
+    font-size: 5vh;
+    line-height: 15vh;
     color: #fff;
-    letter-spacing: 0.1em;
-    text-decoration: none;
     text-align: left;
+    letter-spacing: 0.3vw;
 }
 
 .main-logo .logo-text::first-letter {
     color: red;
 }
 
-.gallery {
-    /* width: 100%; */
-    /* overflow: hidden; */
-    border: 1px red dotted;
+/* --- Slider -------------------------------------------------------------- */
+
+.products {
+    position: relative;
+    width: 80vw;
+    margin-top: 7vw;
+    margin-top: 0;
+    margin-left: 10vw;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    /* Редуцирует пробелы между элементами inline-block*/
+    font-size: 0;
+    white-space: nowrap;
+    transition: all .8s ease-in-out .2s;
 }
 
 .product-item {
-    /* width: 285px; */
-    width: 23.5%;
-    float: left;
-    margin-right: 1.5%;
-    padding: 1%;
+    position: relative;
+    width: 20vw;
+    padding: 0.7vw;
+    display: inline-block;
+    vertical-align: middle;
     background-color: #fff;
-    border: 1px red dotted;
-}
-
-.product-item:last-child {
-    margin-right: 0;
+    /* cursor: pointer; */
 }
 
 .product-img {
@@ -78,30 +79,35 @@ input[type="radio"] {
 
 .product-description {
     display: none;
-    margin-top: 5%;
 }
 
-.product-item p {
+.product-item .product-description p {
+    margin-top: 5%;
     margin-bottom: 5%;
     overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.7rem;
+    white-space: normal;
+    /* text-overflow: ellipsis; */
+    font-size: 0.8rem;
     font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.product-item .product-description p:last-of-type {
+    margin-bottom: 0;
 }
 
 .product-item:hover {
-    padding: 1.5%;
-    transform-origin: 0 0;
-    transform: scale(1.4);
+    position: fixed;
+    top: 25%;
+    width: 24vw;
     box-shadow: 2px 0 5px 1px rgb(129, 125, 125);
+    z-index: 10;
 }
 
 .product-item:hover .product-description {
     display: block;
 }
 
-input:checked+.product-item img {
+input[name="increase-img"]:checked+.product-item img {
     position: fixed;
     width: 60%;
     top: 50%;
@@ -111,19 +117,78 @@ input:checked+.product-item img {
     pointer-events: none;
 }
 
-input:checked~.product-description {
+input[name="increase-img"]:checked~.product-description {
     display: none;
 }
 
-/* --- Модальное окно ------------------------------------------------------------ */
+/* --- Slider switcher ------------------------------------------------------------ */
+
+.slider-switchers {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.slider:hover~.slider-switchers {
+    z-index: -10;
+}
+
+.slider-switchers label {
+    display: inline-block;
+    width: 1vw;
+    height: 1vw;
+    margin: 0 0.5vw;
+    border: 1px #333 solid;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#move0:checked~.slider-switchers label[for="move0"] {
+    background-color: #0bf;
+}
+
+#move1:checked~.slider-switchers label[for="move1"] {
+    background-color: #0bf;
+}
+
+#move2:checked~.slider-switchers label[for="move2"] {
+    background-color: #0bf;
+}
+
+#move3:checked~.slider-switchers label[for="move3"] {
+    background-color: #0bf;
+}
+
+/* --- Slider moving ------------------------------------------------------------ */
+
+#move0:checked~.slider-wrapper .slider {
+    left: 0;
+}
+
+#move1:checked~.slider-wrapper .slider {
+    left: -60vw;
+}
+
+#move2:checked~.slider-wrapper .slider {
+    left: -120vw;
+}
+
+#move3:checked~.slider-wrapper .slider {
+    left: -180vw;
+}
+
+/* --- Modal window ------------------------------------------------------------ */
 
 /* Нужно ли ??? */
 
-/*
+/* 
 input[name='increase-img']:checked~.modal-window {
     display: block;
-}
-*/
+} */
 
 .modal-window {
     /* Модальное окно */
