@@ -6,6 +6,8 @@
     --content-width: 80vw;
     --header-color: darkslateblue;
     --text-color: #333;
+    --slider-switchers-color: rgb(33, 31, 139);
+    --slider-switchers-border: solid 0.3vw var(--slider-switchers-color);
 }
 
 /* --- General -------------------------------------------------------------- */
@@ -62,7 +64,6 @@ input[type="radio"] {
     position: relative;
     width: var(--content-width);
     margin-left: calc((100vw - var(--content-width)) * 0.5);
-    border: dotted 1px black;
 }
 
 .slider-wrapper {
@@ -86,7 +87,6 @@ input[type="radio"] {
     display: inline-block;
     vertical-align: middle;
     background-color: #fff;
-    border: dotted 1px red;
 }
 
 .product-img {
@@ -138,10 +138,6 @@ input[type="radio"] {
     display: block;
 }
 
-input[name="increase-img"]:checked~.product-description {
-    display: none;
-}
-
 /* --- Slider switcher ------------------------------------------------------------ */
 
 .slider-switchers {
@@ -158,25 +154,30 @@ input[name="increase-img"]:checked~.product-description {
     height: 1vw;
     margin: 0 0.5vw;
     border: 1px #333 solid;
+    border: 1px solid var(--slider-switchers-color);
     border-radius: 50%;
     background-color: #fff;
     cursor: pointer;
 }
 
 #move0:checked~.slider-switchers label[for="move0"] {
-    background-color: #0bf;
+    background-color: #fff;
+    border: var(--slider-switchers-border);
 }
 
 #move1:checked~.slider-switchers label[for="move1"] {
-    background-color: #0bf;
+    background-color: #fff;
+    border: var(--slider-switchers-border);
 }
 
 #move2:checked~.slider-switchers label[for="move2"] {
-    background-color: #0bf;
+    background-color: #fff;
+    border: var(--slider-switchers-border);
 }
 
 #move3:checked~.slider-switchers label[for="move3"] {
-    background-color: #0bf;
+    background-color: #fff;
+    border: var(--slider-switchers-border);
 }
 
 /* --- Slider moving ------------------------------------------------------------ */
@@ -207,6 +208,10 @@ input[name="increase-img"]:checked+.product-item img {
     transform: translate(-50%, -50%);
     z-index: 20;
     pointer-events: none;
+}
+
+input[name="increase-img"]:checked~.product-description {
+    display: none;
 }
 
 /* Нужно ли ??? */
