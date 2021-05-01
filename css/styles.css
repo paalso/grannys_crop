@@ -214,12 +214,9 @@ input[name="increase-img"]:checked~.product-description {
     display: none;
 }
 
-/* Нужно ли ??? */
-
-/* 
 input[name='increase-img']:checked~.modal-window {
     display: block;
-} */
+}
 
 .modal-window {
     /* Модальное окно */
@@ -231,13 +228,6 @@ input[name='increase-img']:checked~.modal-window {
     left: 0;
     z-index: 10;
     background: rgba(0, 0, 0, 0.7);
-}
-
-input#close-modal:checked~.modal-window, input#close-modal:checked~.modal-close {
-    /* Делает нективными и невидимыми модальное окно и div для его закрытия по умолчанию */
-    /* transition: opacity 200ms ease-in; */
-    /* -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in; */
 }
 
 input#close-modal:checked~.modal-window, input#close-modal:checked~.modal-close {
